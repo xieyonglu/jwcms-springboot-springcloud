@@ -1,0 +1,31 @@
+server:
+  port: 9999
+ 
+spring:
+  application:
+    name: monitor
+ 
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8081/eureka/
+ 
+#http://localhost:9999/hystrix  http://localhost:8777/actuator/hystrix.stream
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+      cors:
+        allowed-origins: "*"
+        allowed-methods: "*"
+ 
+turbine:
+#  需要监控的服务名称
+  app-config: ribbon-service
+  aggregator:
+    clusterConfig: default
+  clusterNameExpression: new String("default")
+  combine-host: true
+  instanceUrlSuffix:
+    default: actuator/hystrix.stream

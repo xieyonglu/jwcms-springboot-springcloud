@@ -1,0 +1,28 @@
+spring:
+  application:
+    name: spring-cloud-config-client
+
+## spring boot读取resource下的application文件
+  profiles:
+    active: prd
+
+
+#  cloud:
+#    config:
+#      uri: http://127.0.0.1:8092/springcloudconfig
+#      profile: pro
+#      label: master
+
+
+
+#  cloud:
+#    config:
+#      uri: http://localhost:8092/springcloudconfig
+##      fail-fast: true
+#  profiles:
+#    active: dev
+#management:
+#  endpoints:
+#    web:
+#      exposure:
+#        include: '*'

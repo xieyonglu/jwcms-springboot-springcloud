@@ -1,0 +1,83 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+	<parent>
+		<groupId>jwcms</groupId>
+		<artifactId>jwcms-springcloud</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+
+	<modelVersion>4.0.0</modelVersion>
+	<artifactId>springcloud-alibaba</artifactId>
+	<packaging>pom</packaging>
+	<name>springcloud-alibaba</name>
+	<description>springcloud-alibaba</description>
+
+	<modules>
+		<module>springcloud-alibaba-nacos-provider</module>
+		<module>springcloud-alibaba-nacos-consumer</module>
+		<module>springcloud-alibaba-nacos-config</module>
+		
+		<module>springcloud-alibaba-sentinel</module>
+	</modules>
+
+	<properties>
+		<spring.cloud.alibaba.version>2.2.1.RELEASE</spring.cloud.alibaba.version>
+	</properties>
+
+	<dependencies>
+
+	</dependencies>
+
+	<dependencyManagement>
+		<dependencies>
+			<!-- 子模块继承之后，提供作用：锁定版本+子modlue不用写groupId和version -->
+			<!--spring boot 2.2.2 -->
+			<!-- <dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-dependencies</artifactId>
+				<version>2.2.2.RELEASE</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency> -->
+
+			<!--spring cloud Hoxton.SR1 -->
+			<!-- <dependency>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-dependencies</artifactId>
+				<version>Hoxton.SR1</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency> -->
+
+			<!--spring cloud alibaba 2.1.0.RELEASE -->
+			<dependency>
+				<groupId>com.alibaba.cloud</groupId>
+				<artifactId>spring-cloud-alibaba-dependencies</artifactId>
+				<version>${spring.cloud.alibaba.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>${maven-compiler-plugin.version}</version>
+				<configuration>
+					<release>${java.version}</release>
+					<source>${java.version}</source>
+					<target>${java.version}</target>
+					<compilerArgs>
+						<arg>-parameters</arg>
+					</compilerArgs>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>
+

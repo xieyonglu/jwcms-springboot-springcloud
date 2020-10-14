@@ -1,0 +1,9 @@
+spring.application.name: consul-provider-payment
+server.port: 8501
+
+spring.cloud.consul.host: 127.0.0.1
+spring.cloud.consul.port: 8500
+
+#注册到 consul 中的服务名称
+spring.cloud.consul.discovery.serviceName: ${spring.application.name}
+

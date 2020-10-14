@@ -1,0 +1,18 @@
+server:
+  port: 3011
+#  servlet:
+#    context-path: /springcloudconfig
+management:
+  endpoint:
+    shutdown:
+      enabled: false
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+data:
+  env: NaN
+  user:
+    username: NaN
+    password: NaN

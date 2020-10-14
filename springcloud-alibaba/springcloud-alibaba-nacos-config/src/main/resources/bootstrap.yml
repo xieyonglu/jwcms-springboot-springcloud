@@ -1,0 +1,14 @@
+server:
+  port: 8911
+
+spring:
+  application:
+    # 注册到Nacos上的服务名称
+    name: nacos-provider-config
+  cloud:
+    nacos:
+      #discovery:
+      #  server-addr: 127.0.0.1:8848
+      config:
+        file-extension: yaml
+        server-addr: 127.0.0.1:8848

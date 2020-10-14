@@ -1,0 +1,176 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+	<!-- <parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.2.0.RELEASE</version>
+		<relativePath />
+	</parent> -->
+
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>jwcms</groupId>
+	<artifactId>jwcms-springcloud</artifactId>
+	<packaging>pom</packaging>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>jwcms-springcloud</name>
+	<description>jwcms-springcloud</description>
+
+	<modules>
+		<module>springboot-jdbc</module>
+		<module>springboot-mybatis</module>
+		<module>springboot-rabbitmq</module>
+		<module>springboot-starter</module>
+		<module>springboot-starter-use</module>
+		<module>springboot-session</module>
+		
+	
+		<module>springcloud-consumer-feign-with-hystrix</module>
+		<module>springcloud-consumer-ribbon-with-hystrix</module>
+		<module>springcloud-consumer-hystrix-dashboard</module>
+		<module>springcloud-consumer-hystrix-turbine</module>
+
+		<module>springcloud-eureka-server</module>
+		<module>springcloud-eureka-provider</module>
+		<module>springcloud-consumer-eureka</module>
+
+		<module>springcloud-consumer-feign</module>
+		<module>springcloud-consumer-ribbon</module>
+
+		<module>springcloud-consumer-eureka-with-zuul</module>
+		
+		<module>springcloud-config-server</module>
+		<module>springcloud-config-server-eureka</module>
+		<module>springcloud-config-client</module>
+		<module>springcloud-config-client-eureka</module>
+		
+		<module>springcloud-consul-provider</module>
+		<module>springcloud-consul-consumer</module>
+		
+		<module>springcloud-sleuth-zipkin</module>
+		
+		<module>springcloud-alibaba</module>
+	</modules>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<java.version>15</java.version>
+
+		<maven-compiler-plugin.version>3.7.0</maven-compiler-plugin.version>
+		<org.springframework.version>5.2.9.RELEASE</org.springframework.version>
+		<!-- <lombok.version>1.18.12</lombok.version> -->
+		
+		<spring.boot.version>2.3.4.RELEASE</spring.boot.version>
+		<spring.cloud.version>Hoxton.SR8</spring.cloud.version>
+	</properties>
+
+	<dependencies>
+		<!-- spring framework -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-aop</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-aspects</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-beans</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context-support</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-core</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-expression</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-jdbc</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-tx</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-web</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+		</dependency>
+
+	</dependencies>
+
+	<dependencyManagement>
+		<dependencies>
+			<!-- 子模块继承之后，提供作用：锁定版本+子modlue不用写groupId和version -->
+			<!--spring boot 2.2.2 -->
+			<dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-dependencies</artifactId>
+				<version>${spring.boot.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+
+			<!--spring cloud Hoxton.SR1 -->
+			<dependency>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-dependencies</artifactId>
+				<version>${spring.cloud.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		
+			<!-- <dependency>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-dependencies</artifactId>
+				<version>Hoxton.RELEASE</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency> -->
+		</dependencies>
+	</dependencyManagement>
+	
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>${maven-compiler-plugin.version}</version>
+				<configuration>
+					<release>${java.version}</release>
+					<source>${java.version}</source>
+					<target>${java.version}</target>
+					<compilerArgs>
+						<arg>-parameters</arg>
+					</compilerArgs>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>
+

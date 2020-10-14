@@ -1,0 +1,37 @@
+server:
+  port: 9501
+
+eureka:
+  client: # 客户端进行Eureka注册的配置
+    service-url:
+      defaultZone: http://localhost:8081/eureka/
+  instance:
+    lease-renewal-interval-in-seconds: 2 # 设置心跳的时间间隔（默认是30秒）
+    lease-expiration-duration-in-seconds: 5 # 如果现在超过了5秒的间隔（默认是90秒）
+    instance-id: gateway-9501.com  # 在信息列表时显示主机名称
+    prefer-ip-address: true     # 访问的路径变为IP地址
+
+#info:
+#  app.name: study-microcloud
+#  company.name: www.study.cn
+#  build.artifactId: $project.artifactId$
+#  build.version: $project.verson$
+
+spring:
+  application:
+    name: microcloud-zuul-gateway
+    
+# 下面整个树都非必须，如果不配置，将默认使用 http://GATEWAY:GATEWAY_PORT/想要访问的Eureka服务id的小写/** 路由到：http://想要访问的Eureka服务id的小写:该服务端口/**
+#zuul:
+#  routes: 
+#    microcloud-provider-company: /company-proxy/**
+#    user:
+#      path: /user/**
+#      service-id: microservice-provider-user
+
+
+zuul:
+  routes:
+    teacherZuul: #这个是随意起的，表示路由名称
+      path: /user/**  #配置请求url的请求规则
+      url: http://gateway-9501.com:9501 #真正的微服务地址

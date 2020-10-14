@@ -1,0 +1,35 @@
+server:
+  port: 8888
+
+spring:
+  application:
+    name: springcloud-consumer-ribbon
+
+eureka:
+  client:
+    serviceUrl:
+     defaultZone: http://localhost:8081/eureka/
+  instance:
+    preferIpAddress: true
+
+
+## Spring Cloud 整合了Spring Retry 来增强RestTemplate的重试能力，当一次服务调用失败后，不会立即抛出一次，而是再次重试另一个服务
+spring:
+  cloud:
+    loadbalancer:
+      retry:
+        enabled: true # 开启Spring Cloud的重试功能
+user-service:
+  ribbon:
+    ConnectTimeout: 250 # Ribbon的连接超时时间
+    ReadTimeout: 1000 # Ribbon的数据读取超时时间
+    OkToRetryOnAllOperations: true # 是否对所有操作都进行重试
+    MaxAutoRetriesNextServer: 1 # 切换实例的重试次数
+    MaxAutoRetries: 1 # 对当前实例的重试次数
+    
+    #NFLoadBalancerClassName: 配置ILoadBalancer的实现类
+    #NFLoadBalancerRuleClassName: 配置IRule的实现类
+    #NFLoadBalancerPingClassName: 配置IPing的实现类
+    #NFWSServerListClassName: 配置ServerList的实现类
+    #NIWSServerListFilterClassName: 配置ServerListFilter的实现类
+    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule    

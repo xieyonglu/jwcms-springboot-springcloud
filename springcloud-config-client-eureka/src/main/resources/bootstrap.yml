@@ -1,0 +1,26 @@
+eureka:
+  client:
+    serviceUrl:
+      register-with-eureka: true
+      fetch-registry: true
+      defaultZone: http://localhost:8081/eureka/
+  instance:
+    preferIpAddress: true
+
+
+spring:
+  profiles:
+    active: dev
+
+---
+spring:
+  profiles: dev
+  application:
+    name: spring-cloud-config-client
+  cloud:
+     config:
+       label: master
+       profile: dev
+       discovery:
+         enabled: true
+         service-id: spring-cloud-config-server
