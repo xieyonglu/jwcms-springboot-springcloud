@@ -1,5 +1,10 @@
 package service;
 
+import lombok.Getter;
+import lombok.Setter;
+
+@Setter
+@Getter
 public class HelloService {
 
 	private String msg;
@@ -8,21 +13,5 @@ public class HelloService {
 
 	public String sayHello() {
 		return name + " say " + msg + " !";
-	}
-
-	public String getMsg() {
-		return msg;
-	}
-
-	public void setMsg(String msg) {
-		this.msg = msg;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
 	}
 }

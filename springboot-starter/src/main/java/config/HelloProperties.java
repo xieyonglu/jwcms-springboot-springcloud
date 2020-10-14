@@ -2,6 +2,9 @@ package config;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
+/**
+ * 配置文件读取类
+ */
 @ConfigurationProperties(prefix = "javaboy")
 public class HelloProperties {
 	

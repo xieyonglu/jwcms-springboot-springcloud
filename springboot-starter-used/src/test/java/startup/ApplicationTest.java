@@ -10,7 +10,7 @@ import service.HelloService;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class UsemystarterApplicationTests {
+public class ApplicationTest {
 
     @Autowired
     HelloService helloService;
