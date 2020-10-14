@@ -2,12 +2,8 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 
-	<!-- <parent>
-		<groupId>org.springframework.boot</groupId>
-		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.2.0.RELEASE</version>
-		<relativePath />
-	</parent> -->
+	<!-- <parent> <groupId>org.springframework.boot</groupId> <artifactId>spring-boot-starter-parent</artifactId> 
+		<version>2.2.0.RELEASE</version> <relativePath /> </parent> -->
 
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>jwcms</groupId>
@@ -24,8 +20,8 @@
 		<module>springboot-starter</module>
 		<module>springboot-starter-use</module>
 		<module>springboot-session</module>
-		
-	
+
+
 		<module>springcloud-consumer-feign-with-hystrix</module>
 		<module>springcloud-consumer-ribbon-with-hystrix</module>
 		<module>springcloud-consumer-hystrix-dashboard</module>
@@ -39,17 +35,17 @@
 		<module>springcloud-consumer-ribbon</module>
 
 		<module>springcloud-consumer-eureka-with-zuul</module>
-		
+
 		<module>springcloud-config-server</module>
 		<module>springcloud-config-server-eureka</module>
 		<module>springcloud-config-client</module>
 		<module>springcloud-config-client-eureka</module>
-		
+
 		<module>springcloud-consul-provider</module>
 		<module>springcloud-consul-consumer</module>
-		
+
 		<module>springcloud-sleuth-zipkin</module>
-		
+
 		<module>springcloud-alibaba</module>
 	</modules>
 
@@ -60,7 +56,7 @@
 		<maven-compiler-plugin.version>3.7.0</maven-compiler-plugin.version>
 		<org.springframework.version>5.2.9.RELEASE</org.springframework.version>
 		<!-- <lombok.version>1.18.12</lombok.version> -->
-		
+
 		<spring.boot.version>2.3.4.RELEASE</spring.boot.version>
 		<spring.cloud.version>Hoxton.SR8</spring.cloud.version>
 	</properties>
@@ -122,6 +118,12 @@
 			<artifactId>lombok</artifactId>
 		</dependency>
 
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>fastjson</artifactId>
+			<version>1.2.69</version>
+		</dependency>
+
 	</dependencies>
 
 	<dependencyManagement>
@@ -144,17 +146,13 @@
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
-		
-			<!-- <dependency>
-				<groupId>org.springframework.cloud</groupId>
-				<artifactId>spring-cloud-dependencies</artifactId>
-				<version>Hoxton.RELEASE</version>
-				<type>pom</type>
-				<scope>import</scope>
-			</dependency> -->
+
+			<!-- <dependency> <groupId>org.springframework.cloud</groupId> <artifactId>spring-cloud-dependencies</artifactId> 
+				<version>Hoxton.RELEASE</version> <type>pom</type> <scope>import</scope> 
+				</dependency> -->
 		</dependencies>
 	</dependencyManagement>
-	
+
 	<build>
 		<plugins>
 			<plugin>

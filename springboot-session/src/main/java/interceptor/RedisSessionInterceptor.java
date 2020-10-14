@@ -11,6 +11,11 @@ import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.alibaba.fastjson.JSON;
+
+import model.ReturnData;
+import util.StatusCode;
+
 //拦截登录失效的请求
 public class RedisSessionInterceptor implements HandlerInterceptor {
 	
@@ -42,7 +47,7 @@ public class RedisSessionInterceptor implements HandlerInterceptor {
 		response.setContentType("application/json; charset=utf-8");
 
 		try {
-			response.getWriter().print(JSON.toJSONString(new ReturnData(StatusCode.NEED_LOGIN, "", "用户未登录！")));
+			response.getWriter().print(JSON.toJSONString(/* new ReturnData(StatusCode.NEED_LOGIN, "", "用户未登录！") */""));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
