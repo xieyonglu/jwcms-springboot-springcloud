@@ -7,7 +7,7 @@ import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
 @EnableDiscoveryClient
-@ComponentScan(basePackages = "controller")
+@ComponentScan(basePackages = "controller,service,config")
 public class SentinelApplication {
 	
     public static void main(String[] args) {

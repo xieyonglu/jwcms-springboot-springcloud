@@ -1,8 +1,9 @@
-package controller;
+package config;
 
 import org.apache.commons.lang3.StringUtils;
 
 import com.alibaba.csp.sentinel.annotation.SentinelResource;
+import com.alibaba.csp.sentinel.slots.block.BlockException;
 
 public class MySentinelResource {
 
@@ -21,9 +22,9 @@ public class MySentinelResource {
 	 * @param ex
 	 * @return
 	 */
-//	public String blockHandler(String str, BlockedException ex) {
-//		return str + "--" + ex;
-//	}
+	public String blockHandler(String str, BlockException ex) {
+		return str + "--" + ex;
+	}
 
 	/**
 	 * 降级处理
