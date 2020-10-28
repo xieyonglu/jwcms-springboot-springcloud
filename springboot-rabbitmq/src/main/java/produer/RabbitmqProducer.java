@@ -16,12 +16,6 @@ import org.springframework.stereotype.Component;
 
 import model.User;
 
-/**
- * @Author: sush4
- * @Description:
- * @Date: 2020/7/18
- */
-
 @Component
 public class RabbitmqProducer {
 	
