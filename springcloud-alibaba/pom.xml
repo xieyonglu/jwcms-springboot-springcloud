@@ -19,6 +19,7 @@
 		<module>springcloud-alibaba-nacos-consumer</module>
 		<module>springcloud-alibaba-nacos-config</module>
 		
+		<module>springcloud-alibaba-seata</module>
 		<module>springcloud-alibaba-sentinel</module>
 	</modules>
 
